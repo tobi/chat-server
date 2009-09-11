@@ -86,13 +86,12 @@ class Chatter < EventMachine::Connection
 end
 
 
+EventMachine.epoll
 
 EventMachine::run {
-  EventMachine.epoll
   EventMachine::start_server("0.0.0.0", 8080, Chatter)
   puts "Listening on 8080..."
 }
-
 
 
 __END__
